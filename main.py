@@ -3,7 +3,9 @@ import pandas as pd
 df = pd.DataFrame({"inflacjaPL": [0,-0.9,-0.7,2,1.8,2.2,3.4],
                    "inflacjaUSA": [1.6,0.1,1.3,2.1,2.4,1.8,1.2],
                  "lata":[2014,2015,2016,2017,2018,2019,2020]})
+
 fig, ax = plt.subplots()
+plt.subplot(2, 1, 1)
 lata = [2014,2015,2016,2017,2018,2019,2020]
 pl = plt.plot(lata,inflacjaPL,label="inflacja w polsce",marker='o')
 us = plt.plot(lata,inflacjaUSA,label="inflacja w U.S",linestyle = 'dotted',marker='o')
@@ -20,4 +22,9 @@ for i in range(5):
             linewidth=2+(5*i),
             alpha=0.03,
             color='#00ff41')
+plt.subplot(2, 1, 2)
+for i in range(6):
+    plt.bar([0,1],[inflacjaPL[i],inflacjaUSA[i]])
+    plt.pause(0.01)
+    
 plt.show()
